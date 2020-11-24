@@ -1,0 +1,423 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Humble Beginnings - Shipyard Tutorial</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="chapter_0.html">Introduction</a></li><li class="chapter-item expanded "><a href="chapter_1.html" class="active"><strong aria-hidden="true">1.</strong> Humble Beginnings</a></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">2.</strong> Move it</a></li><li class="chapter-item expanded "><a href="chapter_3.html"><strong aria-hidden="true">3.</strong> A Whole New World</a></li><li class="chapter-item expanded "><a href="chapter_4.html"><strong aria-hidden="true">4.</strong> The journey begins</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Shipyard Tutorial</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#humble-beginnings" id="humble-beginnings">Humble Beginnings</a></h1>
+<p>Let's start by creating a new project and adding rltk to <code>Cargo.toml</code>:</p>
+<pre><code class="language-toml">rltk = &quot;0.8.1&quot;
+</code></pre>
+<p>Note that you can copy text in code blocks by clicking the icon at the top right corner of each block.</p>
+<p>Then you can replace the content of <code>main.rs</code> by:</p>
+<pre><code class="language-rust noplaypen">use rltk::{GameState, Rltk, RltkBuilder};
+
+struct State;
+impl GameState for State {
+    fn tick(&amp;mut self, ctx: &amp;mut Rltk) {
+        ctx.cls();
+        ctx.print(1, 1, &quot;Hello Rust World&quot;);
+    }
+}
+
+fn main() -&gt; rltk::BError {
+    let context = RltkBuilder::simple80x50()
+        .with_title(&quot;Roguelike Tutorial&quot;)
+        .build()?;
+
+    let gs = State;
+    rltk::main_loop(context, gs)
+}
+</code></pre>
+<p>This code will open a new console named &quot;Roguelike Tutorial&quot;, composed of 80 * 50 characters.<br />
+We're then initializing a <code>GameState</code> that every frame will clear the console and print &quot;Hello Rust World&quot; at the top left.</p>
+<h2><a class="header" href="#a-wild-ecs-appears" id="a-wild-ecs-appears">A Wild ECS appears!</a></h2>
+<p>Let's add <code>shipyard</code> to our dependencies: </p>
+<pre><code class="language-toml">shipyard = { git = &quot;https://github.com/leudz/shipyard&quot; }
+</code></pre>
+<p>We use github and not crates.io for now, we'll use 0.5 when it gets released.</p>
+<p>An ECS will help us compose our game objects.<br />
+A few years back object-oriented was the preferred pattern but the gamedev community has moved away from it. Rust also prefers composition over inheritance so we won't fight the language.<br />
+In addition, ECS in Rust often makes ownership easier to deal with, we just delegate the burden to the ECS.</p>
+<p>I've been using the abbreviation a few times already but ECS stands for Entity, Component, System.<br />
+Components are data that you own, it can be a struct, an enum,...<br />
+Entities are composed of multiple components and can be referred to using an <a href="https://docs.rs/shipyard/latest/shipyard/struct.EntityId.html"><code>EntityId</code></a>.<br />
+Systems are actions on entities and components.</p>
+<p>This is very theoretic so let's move to the practice!</p>
+<h2><a class="header" href="#adding-our-first-entity" id="adding-our-first-entity">Adding our first entity</a></h2>
+<p>We'll need to import a few more things to <code>main.rs</code>:</p>
+<pre><code class="language-rust noplaypen">use rltk::{GameState, Rltk, RltkBuilder, RGB};
+use shipyard::{EntitiesViewMut, ViewMut, World};
+</code></pre>
+<p>Everything we'll do with the ECS will go through <a href="https://docs.rs/shipyard/latest/shipyard/struct.World.html"><code>World</code></a>, it holds all entities and components.</p>
+<p>We'll also add these two structs:</p>
+<pre><code class="language-rust noplaypen">struct Position {
+    x: i32,
+    y: i32,
+}
+
+struct Renderable {
+    glyph: rltk::FontCharType,
+    fg: RGB,
+    bg: RGB,
+}
+</code></pre>
+<p><code>Renderable</code> defines how to render a character; <code>glyph</code> specify which character, <code>fg</code> the foreground color and <code>bg</code> the background color.</p>
+<p>Let's add a <a href="https://docs.rs/shipyard/latest/shipyard/struct.World.html"><code>World</code></a> to our <code>State</code>:</p>
+<pre><code class="language-rust noplaypen">struct State {
+    ecs: World
+}
+</code></pre>
+<p>And replace its initialization in the <code>main</code> function:</p>
+<pre><code class="language-rust noplaypen">let gs = State { ecs: World::new() };
+</code></pre>
+<p>Next we want to add our first entity with a couple of components:</p>
+<pre><code class="language-rust noplaypen">fn initial_entities(
+    mut entities: EntitiesViewMut,
+    mut positions: ViewMut&lt;Position&gt;,
+    mut renderables: ViewMut&lt;Renderable&gt;,
+) {
+    // we'll fill the body very soon
+}
+</code></pre>
+<p><code>initial_entities</code> takes three arguments, all of them are views. This is an important concept of shipyard.<br />
+Every component in the <a href="https://docs.rs/shipyard/latest/shipyard/struct.World.html"><code>World</code></a> is stored in a different storage and views let us access these storages.<br />
+Here, we access the <a href="https://docs.rs/shipyard/latest/shipyard/struct.Entities.html"><code>Entities</code></a>, <code>Position</code> and <code>Renderable</code> storages and we want to modify all of them.</p>
+<p>The body of the function:</p>
+<pre><code class="language-rust noplaypen">entities.add_entity(
+    (&amp;mut positions, &amp;mut renderables),
+    (
+        Position { x: 40, y: 25 },
+        Renderable {
+            glyph: rltk::to_cp437('@'),
+            fg: RGB::named(rltk::YELLOW),
+            bg: RGB::named(rltk::BLACK),
+        },
+    ),
+);
+</code></pre>
+<p>In this function we create a new entity with a <code>Position</code> and a <code>Renderable</code> component.</p>
+<p>To add an entity we call <a href="https://docs.rs/shipyard/latest/shipyard/struct.Entities.html#method.add_entity"><code>Entities::add_entity</code></a>. This method takes two arguments, the storages of the components we want to add and the components themselves.<br />
+Since we want to add multiple components to multiple storages we use two tuples.<br />
+<a href="https://docs.rs/shipyard/latest/shipyard/struct.Entities.html#method.add_entity"><code>add_entity</code></a> will give us back an <a href="https://docs.rs/shipyard/latest/shipyard/struct.EntityId.html"><code>EntityId</code></a> that we can use to refer to this entity but we don't need it in this case.</p>
+<p>A function with only views as arguments is a system. We'll <a href="https://docs.rs/shipyard/latest/shipyard/struct.World.html#method.run"><code>run</code></a> it right after creating <code>gs</code>:</p>
+<pre><code class="language-rust noplaypen">gs.ecs.run(initial_entities);
+</code></pre>
+<h2><a class="header" href="#rendering" id="rendering">Rendering</a></h2>
+<p>We now have an entity with two components but haven't told <code>rltk</code> yet.</p>
+<ul>
+<li>
+<p>imports:</p>
+<pre><code class="language-diff">- use shipyard::{EntitiesViewMut, ViewMut, World};
+</code></pre>
+<pre><code class="language-rust noplaypen">use shipyard::{EntitiesViewMut, IntoIter, View, ViewMut, World};
+</code></pre>
+</li>
+<li>
+<p><code>State::tick</code>:</p>
+<pre><code class="language-diff">- `ctx.print(1, 1, &quot;Hello Rust World&quot;);`
+</code></pre>
+<pre><code class="language-rust noplaypen">self.ecs
+    .run(|positions: View&lt;Position&gt;, renderables: View&lt;Renderable&gt;| {
+        for (pos, render) in (&amp;positions, &amp;renderables).iter() {
+            ctx.set(pos.x, pos.y, render.fg, render.bg, render.glyph);
+        }
+    });
+</code></pre>
+</li>
+</ul>
+<p>Here instead of a free function we use a closure but the same rule applies. As long as it only takes views as arguments: It's a system.</p>
+<p>We're also using <a href="https://docs.rs/shipyard/latest/shipyard/trait.IntoIter.html#tymethod.iter"><code>iter</code></a> from the <a href="https://docs.rs/shipyard/latest/shipyard/trait.IntoIter.html"><code>IntoIter</code></a> trait.<br />
+It will give us all entities that have both a <code>Position</code> and <code>Renderable</code> components. In our case it'll be a single entity.<br />
+We then call <code>Rltk::set</code> to render it.</p>
+<h2><a class="header" href="#final-code" id="final-code">Final code</a></h2>
+<p>If you run this code you should see a yellow <code>@</code> in the middle of a fully black background.</p>
+<pre><code class="language-rust noplaypen">use rltk::{GameState, Rltk, RltkBuilder, RGB};
+use shipyard::{EntitiesViewMut, IntoIter, View, ViewMut, World};
+
+struct Position {
+    x: i32,
+    y: i32,
+}
+struct Renderable {
+    glyph: rltk::FontCharType,
+    fg: RGB,
+    bg: RGB,
+}
+
+struct State {
+    ecs: World,
+}
+
+impl GameState for State {
+    fn tick(&amp;mut self, ctx: &amp;mut Rltk) {
+        ctx.cls();
+
+        self.ecs
+            .run(|positions: View&lt;Position&gt;, renderables: View&lt;Renderable&gt;| {
+                for (pos, render) in (&amp;positions, &amp;renderables).iter() {
+                    ctx.set(pos.x, pos.y, render.fg, render.bg, render.glyph);
+                }
+            });
+    }
+}
+
+fn initial_entities(
+    mut entities: EntitiesViewMut,
+    mut positions: ViewMut&lt;Position&gt;,
+    mut renderables: ViewMut&lt;Renderable&gt;,
+) {
+    entities.add_entity(
+        (&amp;mut positions, &amp;mut renderables),
+        (
+            Position { x: 40, y: 25 },
+            Renderable {
+                glyph: rltk::to_cp437('@'),
+                fg: RGB::named(rltk::YELLOW),
+                bg: RGB::named(rltk::BLACK),
+            },
+        ),
+    );
+}
+
+fn main() -&gt; rltk::BError {
+    let context = RltkBuilder::simple80x50()
+        .with_title(&quot;Roguelike Tutorial&quot;)
+        .build()?;
+    let gs = State { ecs: World::new() };
+
+    gs.ecs.run(initial_entities);
+
+    rltk::main_loop(context, gs)
+}
+</code></pre>
+<hr />
+<p>The &quot;Shipyard Tutorial&quot; is a derivative work of <a href="https://bfnightly.bracketproductions.com/rustbook/">&quot;Roguelike Tutorial - In Rust&quot;</a> by <a href="https://github.com/thebracket">Herbert Wolverson</a>, used under <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">CC BY-SA 4.0</a>. &quot;Shipyard Tutorial&quot; is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">CC BY-SA 4.0</a> by Dylan Ancel.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="chapter_0.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="chapter_2.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="chapter_0.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="chapter_2.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

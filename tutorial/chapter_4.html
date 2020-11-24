@@ -1,0 +1,589 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The journey begins - Shipyard Tutorial</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="chapter_0.html">Introduction</a></li><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Humble Beginnings</a></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">2.</strong> Move it</a></li><li class="chapter-item expanded "><a href="chapter_3.html"><strong aria-hidden="true">3.</strong> A Whole New World</a></li><li class="chapter-item expanded "><a href="chapter_4.html" class="active"><strong aria-hidden="true">4.</strong> The journey begins</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Shipyard Tutorial</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#the-journey-begins" id="the-journey-begins">The journey begins</a></h1>
+<p>So far we've always had the whole map as soon as the game begins which makes any exploration pointless.<br />
+We'll change that in this chapter by making the player only see what is in their field of view.</p>
+<p>We'll start by implementing a couple of trait for <code>Map</code>:</p>
+<ul>
+<li>imports:
+<pre><code class="language-diff">-use rltk::{Rltk, RGB};
+</code></pre>
+<pre><code class="language-rust noplaypen">use rltk::{Algorithm2D, BaseMap, Point, Rltk, RGB};
+</code></pre>
+</li>
+<li><code>Tile</code> derive:
+<pre><code class="language-rust noplaypen">#[derive(Clone, Copy, PartialEq, Eq)]
+</code></pre>
+</li>
+<li>new <code>impl</code>:
+<pre><code class="language-rust noplaypen">impl BaseMap for Map {
+    fn is_opaque(&amp;self, idx: usize) -&gt; bool {
+        self.tiles[idx] == Tile::Wall
+    }
+}
+
+impl Algorithm2D for Map {
+    fn dimensions(&amp;self) -&gt; Point {
+        Point::new(self.width, self.height)
+    }
+}
+</code></pre>
+With these two traits we'll be able to query rltk to know what the player sees.</li>
+</ul>
+<p>We'll make a new <code>visibility.rs</code> file and add:</p>
+<ul>
+<li>imports:
+<pre><code class="language-rust noplaypen">use crate::components::Position;
+use crate::map::Map;
+use rltk::{field_of_view, Point};
+use shipyard::{IntoIter, UniqueView, View, ViewMut};
+</code></pre>
+</li>
+<li>new component:
+<pre><code class="language-rust noplaypen">pub struct Viewshed {
+    pub visible_tiles: Vec&lt;Point&gt;,
+    pub range: u32,
+}
+
+impl Viewshed {
+    pub fn new(range: u32) -&gt; Self {
+        Viewshed {
+            visible_tiles: Vec::new(),
+            range,
+        }
+    }
+}
+</code></pre>
+</li>
+<li>new system:
+<pre><code class="language-rust noplaypen">pub fn visibility(
+    map: UniqueView&lt;Map&gt;,
+    positions: View&lt;Position&gt;,
+    mut viewsheds: ViewMut&lt;Viewshed&gt;,
+) {
+    for (viewshed, pos) in (&amp;mut viewsheds, &amp;positions).iter() {
+        viewshed.visible_tiles.clear();
+        // query rltk to get all tiles in the player's field of view
+        viewshed.visible_tiles =
+            field_of_view(Point::new(pos.x, pos.y), viewshed.range as i32, &amp;*map);
+        // clip the visible tiles to the console
+        viewshed.visible_tiles.retain(|p| {
+            p.x &gt;= 0 &amp;&amp; p.x &lt; map.width as i32 - 1 &amp;&amp; p.y &gt;= 0 &amp;&amp; p.y &lt; map.height as i32 - 1
+        });
+    }
+}
+</code></pre>
+</li>
+</ul>
+<p>To make it work we need to add the new component to the player in <code>main.rs</code> and run the system:</p>
+<ul>
+<li>module:
+<pre><code class="language-rust noplaypen">mod visibility;
+</code></pre>
+</li>
+<li>imports:
+<pre><code class="language-rust noplaypen">use visibility::{visibility, Viewshed};
+</code></pre>
+</li>
+<li><code>ìnitial_entities</code>:
+<pre><code class="language-diff">fn initial_entities(
+    [x, y]: [i32; 2],
+    mut entities: EntitiesViewMut,
+    mut positions: ViewMut&lt;Position&gt;,
+    mut renderables: ViewMut&lt;Renderable&gt;,
++    mut viewsheds: ViewMut&lt;Viewshed&gt;,
+) {
+    entities.add_entity(
+-        (&amp;mut positions, &amp;mut renderables),
++        (&amp;mut positions, &amp;mut renderables, &amp;mut viewsheds),
+        (
+            Position { x, y },
+            Renderable {
+                glyph: rltk::to_cp437('@'),
+                fg: RGB::named(rltk::YELLOW),
+                bg: RGB::named(rltk::BLACK),
+            },
++            Viewshed::new(8),
+        ),
+    );
+}
+</code></pre>
+</li>
+<li><code>State::tick</code>:
+<pre><code class="language-rust noplaypen">self.ecs.run(visibility);
+</code></pre>
+We'll run this system between moving the player and rendering the map.</li>
+</ul>
+<p>Last step is to modify <code>map.rs</code>:</p>
+<ul>
+<li>imports:
+<pre><code class="language-diff">-use shipyard::UniqueView;
+</code></pre>
+<pre><code class="language-rust noplaypen">use crate::visibility::Viewshed;
+use shipyard::{IntoIter, UniqueView, View};
+</code></pre>
+</li>
+<li><code>Map::draw</code>:
+<pre><code class="language-rust noplaypen">pub fn draw(ctx: &amp;mut Rltk, map: UniqueView&lt;Self&gt;, viewsheds: View&lt;Viewshed&gt;) {
+    for (i, tile) in map.tiles.iter().enumerate() {
+        let (x, y) = coords_of(i);
+        let p = Point::new(x, y);
+
+        for viewshed in viewsheds.iter() {
+            if viewshed.visible_tiles.contains(&amp;p) {
+                match tile {
+                    Tile::Floor =&gt; {
+                        ctx.set(x, y, RGB::from_f32(0.5, 0.5, 0.5), RGB::from_f32(0., 0., 0.), rltk::to_cp437('.'));
+                    }
+                    Tile::Wall =&gt; {
+                        ctx.set(x, y, RGB::from_f32(0., 1., 0.), RGB::from_f32(0., 0., 0.), rltk::to_cp437('#'));
+                    }
+                }
+            }
+        }
+    }
+}
+</code></pre>
+We're only rendering visible tiles now.</li>
+</ul>
+<h2><a class="header" href="#im-not-a-goldfish" id="im-not-a-goldfish">I'm not a goldfish!</a></h2>
+<p>We have what we wanted, we can only see the tiles our character can. But it's a bit too extreme, the walls are not going to move.<br />
+So let's make the game help us remember where there are.</p>
+<ul>
+<li><code>map.rs</code>:
+<ul>
+<li><code>Map</code> new field:
+<pre><code class="language-rust noplaypen">pub revealed_tiles: Vec&lt;bool&gt;,
+</code></pre>
+</li>
+<li><code>Map::create_dungeon</code>:
+<pre><code class="language-diff">Map {
+    tiles,
+    rooms,
++    revealed_tiles: vec![false; (width * height) as usize],
+    width,
+    height,
+}
+</code></pre>
+</li>
+<li><code>Map::draw</code>:
+<pre><code class="language-diff">pub fn draw(ctx: &amp;mut Rltk, map: UniqueView&lt;Self&gt;, viewsheds: View&lt;Viewshed&gt;) {
+    for (i, tile) in map.tiles.iter().enumerate() {
+        let (x, y) = coords_of(i);
+-        let p = Point::new(x, y);
+
+-        for viewshed in viewsheds.iter() {
+-            if viewshed.visible_tiles.contains(&amp;p) {
++        if map.revealed_tiles[i] {
+            match tile {
+                Tile::Floor =&gt; {
+                    ctx.set(x, y, RGB::from_f32(0.5, 0.5, 0.5), RGB::from_f32(0., 0., 0.), rltk::to_cp437('.'));
+                }
+                Tile::Wall =&gt; {
+                    ctx.set(x, y, RGB::from_f32(0., 1., 0.), RGB::from_f32(0., 0., 0.), rltk::to_cp437('#'));
+                }
+            }
+        }
+-       }
+    }
+}
+</code></pre>
+There will be some unused imports that you can remove.</li>
+</ul>
+</li>
+<li><code>visibility.rs</code>:
+<ul>
+<li>imports:
+<pre><code class="language-diff">-use crate::map::Map;
+-use shipyard::{IntoIter, UniqueView, View, ViewMut};
+</code></pre>
+<pre><code class="language-rust noplaypen">use crate::map::{index_of, Map};
+use shipyard::{IntoIter, UniqueViewMut, View, ViewMut};
+</code></pre>
+</li>
+<li><code>visibility</code>:
+<pre><code class="language-diff">-map: UniqueView&lt;Map&gt;,
+</code></pre>
+<pre><code class="language-rust noplaypen">mut map: UniqueViewMut&lt;Map&gt;,
+</code></pre>
+<pre><code class="language-diff">viewshed.visible_tiles.clear();
+// query rltk to get all tiles in the player's field of view
+viewshed.visible_tiles =
+    field_of_view(Point::new(pos.x, pos.y), viewshed.range, &amp;*map);
+// clip the visible tiles to the console
+viewshed.visible_tiles.retain(|p| {
+    p.x &gt;= 0 &amp;&amp; p.x &lt; map.width as i32 - 1 &amp;&amp; p.y &gt;= 0 &amp;&amp; p.y &lt; map.height as i32 - 1
+});
+
++for p in &amp;viewshed.visible_tiles {
++    map.revealed_tiles[index_of(p.x, p.y)] = true;
++}
+</code></pre>
+We're just setting all tiles viewed as revealed.</li>
+</ul>
+</li>
+</ul>
+<p>We're currently recalculating the player's field of view each frame but most of the time they're not moving.<br />
+We'll add a dirty flag to only recalculate it when needed.</p>
+<ul>
+<li><code>visibility.rs</code>:
+<ul>
+<li><code>Viewshed</code> new field:
+<pre><code class="language-rust noplaypen">pub is_dirty: bool,
+</code></pre>
+</li>
+<li><code>Viewshed::new</code> new field:
+<pre><code class="language-diff">Viewshed {
++    is_dirty: true,
+    visible_tiles: Vec::new(),
+    range,
+}
+</code></pre>
+</li>
+<li><code>visibility</code>:
+<pre><code class="language-diff">+if viewshed.is_dirty {
++    viewshed.is_dirty = false;
++
+    viewshed.visible_tiles.clear();
+    // query rltk to get all tiles in the player's field of view
+    viewshed.visible_tiles =
+        field_of_view(Point::new(pos.x, pos.y), viewshed.range as i32, &amp;*map);
+    // clip the visible tiles to the console
+    viewshed.visible_tiles.retain(|p| {
+        p.x &gt;= 0 &amp;&amp; p.x &lt; map.width as i32 - 1 &amp;&amp; p.y &gt;= 0 &amp;&amp; p.y &lt; map.height as i32 - 1
+    });
+
+    for p in &amp;viewshed.visible_tiles {
+        map.revealed_tiles[index_of(p.x, p.y)] = true;
+    }
++}
+</code></pre>
+Now we check the flag before doing anything and reset it when it's dirty.</li>
+</ul>
+</li>
+<li><code>player.rs</code>:
+<ul>
+<li>imports:
+<pre><code class="language-rust noplaypen">use crate::visibility::Viewshed;
+</code></pre>
+</li>
+<li><code>move_player</code>:
+<pre><code class="language-diff">-pub fn move_player(ctx: &amp;mut Rltk, map: UniqueView&lt;Map&gt;, mut positions: ViewMut&lt;Position&gt;) {
++pub fn move_player(
++    ctx: &amp;mut Rltk,
++    map: UniqueView&lt;Map&gt;,
++    mut positions: ViewMut&lt;Position&gt;,
++    mut viewsheds: ViewMut&lt;Viewshed&gt;,
++) {
+    let [delta_x, delta_y] = match ctx.key {
+        Some(VirtualKeyCode::Left) =&gt; [-1, 0],
+        Some(VirtualKeyCode::Right) =&gt; [1, 0],
+        Some(VirtualKeyCode::Up) =&gt; [0, -1],
+        Some(VirtualKeyCode::Down) =&gt; [0, 1],
+        _ =&gt; return,
+    };
+
+-    for pos in (&amp;mut positions).iter() {
++    for (pos, viewshed) in (&amp;mut positions, &amp;mut viewsheds).iter() {
+        let destination_idx = index_of(pos.x + delta_x, pos.y + delta_y);
+
+        if let Tile::Floor = map.tiles[destination_idx] {
+            pos.x = min(map.width as i32 - 1, max(0, pos.x + delta_x));
+            pos.y = min(map.height as i32 - 1, max(0, pos.y + delta_y));
+        }
+
++        viewshed.is_dirty = true;
+    }
+}
+</code></pre>
+We've added <code>Viewshed</code> to the system and made the flag dirty when the player moves.</li>
+</ul>
+</li>
+</ul>
+<p>Last step is to differentiate between what we see and what we saw.</p>
+<ul>
+<li><code>map.rs</code>:
+<ul>
+<li><code>Map</code> new field:
+<pre><code class="language-rust noplaypen">pub visible_tiles: Vec&lt;bool&gt;,
+</code></pre>
+</li>
+<li><code>create_dungeon</code>:
+<pre><code class="language-diff">Map {
+    tiles,
+    rooms,
+    revealed_tiles: vec![false; (width * height) as usize],
++    visible_tiles: vec![false; (width * height) as usize],
+    width,
+    height,
+}
+</code></pre>
+</li>
+<li><code>Map::draw</code>:
+<pre><code class="language-rust noplaypen">pub fn draw(ctx: &amp;mut Rltk, map: UniqueView&lt;Self&gt;) {
+    for (i, tile) in map.tiles.iter().enumerate() {
+        if map.revealed_tiles[i] {
+            let (x, y) = coords_of(i);
+
+            let (glyph, mut fg) = match tile {
+                Tile::Floor =&gt; (rltk::to_cp437('.'), RGB::from_f32(0., 0.5, 0.5)),
+                Tile::Wall =&gt; (rltk::to_cp437('#'), RGB::from_f32(0., 1., 0.)),
+            };
+
+            if !map.visible_tiles[i] {
+                fg = fg.to_greyscale();
+            }
+
+            ctx.set(x, y, fg, RGB::from_f32(0., 0., 0.), glyph);
+        }
+    }
+}
+</code></pre>
+We made the visible floor a little more visible and we greyed out what we can't see.</li>
+</ul>
+</li>
+<li><code>visibility.rs</code>:
+<ul>
+<li><code>visibility</code>:
+<pre><code class="language-diff">+for t in &amp;mut *map.visible_tiles {
++    *t = false;
++}
+
+for p in &amp;viewshed.visible_tiles {
+    map.revealed_tiles[index_of(p.x, p.y)] = true;
++    map.visible_tiles[index_of(p.x, p.y)] = true;
+}
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<p>Have fun exploring your dungeons! They are safe... for now.</p>
+<h2><a class="header" href="#final-code" id="final-code">Final code</a></h2>
+<p>You can find the <a href="https://github.com/leudz/shipyard/tree/master/tutorial/src/bin/4">final code here</a>.</p>
+<hr />
+<p>The &quot;Shipyard Tutorial&quot; is a derivative work of <a href="https://bfnightly.bracketproductions.com/rustbook/">&quot;Roguelike Tutorial - In Rust&quot;</a> by <a href="https://github.com/thebracket">Herbert Wolverson</a>, used under <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">CC BY-SA 4.0</a>. &quot;Shipyard Tutorial&quot; is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">CC BY-SA 4.0</a> by Dylan Ancel.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="chapter_3.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="chapter_3.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

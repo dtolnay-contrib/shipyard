@@ -1,0 +1,1405 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Shipyard Tutorial</title>
+        
+        <meta name="robots" content="noindex" />
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="chapter_0.html">Introduction</a></li><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Humble Beginnings</a></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">2.</strong> Move it</a></li><li class="chapter-item expanded "><a href="chapter_3.html"><strong aria-hidden="true">3.</strong> A Whole New World</a></li><li class="chapter-item expanded "><a href="chapter_4.html"><strong aria-hidden="true">4.</strong> The journey begins</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Shipyard Tutorial</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#introduction" id="introduction">Introduction</a></h1>
+<p>This tutorial aims to teach how to use <a href="https://github.com/leudz/shipyard">shipyard</a>. It is based on <a href="https://github.com/thebracket">Herbert Wolverson</a>'s <a href="https://bfnightly.bracketproductions.com/rustbook/">Roguelike Tutorial</a>.</p>
+<p>This tutorial won't teach Rust. It is recommended to have read the <a href="https://doc.rust-lang.org/book/">official book</a> or a similar source of information before.
+If you are already familiar with the ECS pattern, <a href="https://leudz.github.io/shipyard/guide">the guide</a> might be a faster way to learn.</p>
+<h2><a class="header" href="#license" id="license">License</a></h2>
+<p>To get this out of the way, the code is licensed under the <a href="../LICENCE">MIT license</a> while the text is licensed under CC BY-SA 4.0.</p>
+<h1><a class="header" href="#humble-beginnings" id="humble-beginnings">Humble Beginnings</a></h1>
+<p>Let's start by creating a new project and adding rltk to <code>Cargo.toml</code>:</p>
+<pre><code class="language-toml">rltk = &quot;0.8.1&quot;
+</code></pre>
+<p>Note that you can copy text in code blocks by clicking the icon at the top right corner of each block.</p>
+<p>Then you can replace the content of <code>main.rs</code> by:</p>
+<pre><code class="language-rust noplaypen">use rltk::{GameState, Rltk, RltkBuilder};
+
+struct State;
+impl GameState for State {
+    fn tick(&amp;mut self, ctx: &amp;mut Rltk) {
+        ctx.cls();
+        ctx.print(1, 1, &quot;Hello Rust World&quot;);
+    }
+}
+
+fn main() -&gt; rltk::BError {
+    let context = RltkBuilder::simple80x50()
+        .with_title(&quot;Roguelike Tutorial&quot;)
+        .build()?;
+
+    let gs = State;
+    rltk::main_loop(context, gs)
+}
+</code></pre>
+<p>This code will open a new console named &quot;Roguelike Tutorial&quot;, composed of 80 * 50 characters.<br />
+We're then initializing a <code>GameState</code> that every frame will clear the console and print &quot;Hello Rust World&quot; at the top left.</p>
+<h2><a class="header" href="#a-wild-ecs-appears" id="a-wild-ecs-appears">A Wild ECS appears!</a></h2>
+<p>Let's add <code>shipyard</code> to our dependencies: </p>
+<pre><code class="language-toml">shipyard = { git = &quot;https://github.com/leudz/shipyard&quot; }
+</code></pre>
+<p>We use github and not crates.io for now, we'll use 0.5 when it gets released.</p>
+<p>An ECS will help us compose our game objects.<br />
+A few years back object-oriented was the preferred pattern but the gamedev community has moved away from it. Rust also prefers composition over inheritance so we won't fight the language.<br />
+In addition, ECS in Rust often makes ownership easier to deal with, we just delegate the burden to the ECS.</p>
+<p>I've been using the abbreviation a few times already but ECS stands for Entity, Component, System.<br />
+Components are data that you own, it can be a struct, an enum,...<br />
+Entities are composed of multiple components and can be referred to using an <a href="https://docs.rs/shipyard/latest/shipyard/struct.EntityId.html"><code>EntityId</code></a>.<br />
+Systems are actions on entities and components.</p>
+<p>This is very theoretic so let's move to the practice!</p>
+<h2><a class="header" href="#adding-our-first-entity" id="adding-our-first-entity">Adding our first entity</a></h2>
+<p>We'll need to import a few more things to <code>main.rs</code>:</p>
+<pre><code class="language-rust noplaypen">use rltk::{GameState, Rltk, RltkBuilder, RGB};
+use shipyard::{EntitiesViewMut, ViewMut, World};
+</code></pre>
+<p>Everything we'll do with the ECS will go through <a href="https://docs.rs/shipyard/latest/shipyard/struct.World.html"><code>World</code></a>, it holds all entities and components.</p>
+<p>We'll also add these two structs:</p>
+<pre><code class="language-rust noplaypen">struct Position {
+    x: i32,
+    y: i32,
+}
+
+struct Renderable {
+    glyph: rltk::FontCharType,
+    fg: RGB,
+    bg: RGB,
+}
+</code></pre>
+<p><code>Renderable</code> defines how to render a character; <code>glyph</code> specify which character, <code>fg</code> the foreground color and <code>bg</code> the background color.</p>
+<p>Let's add a <a href="https://docs.rs/shipyard/latest/shipyard/struct.World.html"><code>World</code></a> to our <code>State</code>:</p>
+<pre><code class="language-rust noplaypen">struct State {
+    ecs: World
+}
+</code></pre>
+<p>And replace its initialization in the <code>main</code> function:</p>
+<pre><code class="language-rust noplaypen">let gs = State { ecs: World::new() };
+</code></pre>
+<p>Next we want to add our first entity with a couple of components:</p>
+<pre><code class="language-rust noplaypen">fn initial_entities(
+    mut entities: EntitiesViewMut,
+    mut positions: ViewMut&lt;Position&gt;,
+    mut renderables: ViewMut&lt;Renderable&gt;,
+) {
+    // we'll fill the body very soon
+}
+</code></pre>
+<p><code>initial_entities</code> takes three arguments, all of them are views. This is an important concept of shipyard.<br />
+Every component in the <a href="https://docs.rs/shipyard/latest/shipyard/struct.World.html"><code>World</code></a> is stored in a different storage and views let us access these storages.<br />
+Here, we access the <a href="https://docs.rs/shipyard/latest/shipyard/struct.Entities.html"><code>Entities</code></a>, <code>Position</code> and <code>Renderable</code> storages and we want to modify all of them.</p>
+<p>The body of the function:</p>
+<pre><code class="language-rust noplaypen">entities.add_entity(
+    (&amp;mut positions, &amp;mut renderables),
+    (
+        Position { x: 40, y: 25 },
+        Renderable {
+            glyph: rltk::to_cp437('@'),
+            fg: RGB::named(rltk::YELLOW),
+            bg: RGB::named(rltk::BLACK),
+        },
+    ),
+);
+</code></pre>
+<p>In this function we create a new entity with a <code>Position</code> and a <code>Renderable</code> component.</p>
+<p>To add an entity we call <a href="https://docs.rs/shipyard/latest/shipyard/struct.Entities.html#method.add_entity"><code>Entities::add_entity</code></a>. This method takes two arguments, the storages of the components we want to add and the components themselves.<br />
+Since we want to add multiple components to multiple storages we use two tuples.<br />
+<a href="https://docs.rs/shipyard/latest/shipyard/struct.Entities.html#method.add_entity"><code>add_entity</code></a> will give us back an <a href="https://docs.rs/shipyard/latest/shipyard/struct.EntityId.html"><code>EntityId</code></a> that we can use to refer to this entity but we don't need it in this case.</p>
+<p>A function with only views as arguments is a system. We'll <a href="https://docs.rs/shipyard/latest/shipyard/struct.World.html#method.run"><code>run</code></a> it right after creating <code>gs</code>:</p>
+<pre><code class="language-rust noplaypen">gs.ecs.run(initial_entities);
+</code></pre>
+<h2><a class="header" href="#rendering" id="rendering">Rendering</a></h2>
+<p>We now have an entity with two components but haven't told <code>rltk</code> yet.</p>
+<ul>
+<li>
+<p>imports:</p>
+<pre><code class="language-diff">- use shipyard::{EntitiesViewMut, ViewMut, World};
+</code></pre>
+<pre><code class="language-rust noplaypen">use shipyard::{EntitiesViewMut, IntoIter, View, ViewMut, World};
+</code></pre>
+</li>
+<li>
+<p><code>State::tick</code>:</p>
+<pre><code class="language-diff">- `ctx.print(1, 1, &quot;Hello Rust World&quot;);`
+</code></pre>
+<pre><code class="language-rust noplaypen">self.ecs
+    .run(|positions: View&lt;Position&gt;, renderables: View&lt;Renderable&gt;| {
+        for (pos, render) in (&amp;positions, &amp;renderables).iter() {
+            ctx.set(pos.x, pos.y, render.fg, render.bg, render.glyph);
+        }
+    });
+</code></pre>
+</li>
+</ul>
+<p>Here instead of a free function we use a closure but the same rule applies. As long as it only takes views as arguments: It's a system.</p>
+<p>We're also using <a href="https://docs.rs/shipyard/latest/shipyard/trait.IntoIter.html#tymethod.iter"><code>iter</code></a> from the <a href="https://docs.rs/shipyard/latest/shipyard/trait.IntoIter.html"><code>IntoIter</code></a> trait.<br />
+It will give us all entities that have both a <code>Position</code> and <code>Renderable</code> components. In our case it'll be a single entity.<br />
+We then call <code>Rltk::set</code> to render it.</p>
+<h2><a class="header" href="#final-code" id="final-code">Final code</a></h2>
+<p>If you run this code you should see a yellow <code>@</code> in the middle of a fully black background.</p>
+<pre><code class="language-rust noplaypen">use rltk::{GameState, Rltk, RltkBuilder, RGB};
+use shipyard::{EntitiesViewMut, IntoIter, View, ViewMut, World};
+
+struct Position {
+    x: i32,
+    y: i32,
+}
+struct Renderable {
+    glyph: rltk::FontCharType,
+    fg: RGB,
+    bg: RGB,
+}
+
+struct State {
+    ecs: World,
+}
+
+impl GameState for State {
+    fn tick(&amp;mut self, ctx: &amp;mut Rltk) {
+        ctx.cls();
+
+        self.ecs
+            .run(|positions: View&lt;Position&gt;, renderables: View&lt;Renderable&gt;| {
+                for (pos, render) in (&amp;positions, &amp;renderables).iter() {
+                    ctx.set(pos.x, pos.y, render.fg, render.bg, render.glyph);
+                }
+            });
+    }
+}
+
+fn initial_entities(
+    mut entities: EntitiesViewMut,
+    mut positions: ViewMut&lt;Position&gt;,
+    mut renderables: ViewMut&lt;Renderable&gt;,
+) {
+    entities.add_entity(
+        (&amp;mut positions, &amp;mut renderables),
+        (
+            Position { x: 40, y: 25 },
+            Renderable {
+                glyph: rltk::to_cp437('@'),
+                fg: RGB::named(rltk::YELLOW),
+                bg: RGB::named(rltk::BLACK),
+            },
+        ),
+    );
+}
+
+fn main() -&gt; rltk::BError {
+    let context = RltkBuilder::simple80x50()
+        .with_title(&quot;Roguelike Tutorial&quot;)
+        .build()?;
+    let gs = State { ecs: World::new() };
+
+    gs.ecs.run(initial_entities);
+
+    rltk::main_loop(context, gs)
+}
+</code></pre>
+<hr />
+<p>The &quot;Shipyard Tutorial&quot; is a derivative work of <a href="https://bfnightly.bracketproductions.com/rustbook/">&quot;Roguelike Tutorial - In Rust&quot;</a> by <a href="https://github.com/thebracket">Herbert Wolverson</a>, used under <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">CC BY-SA 4.0</a>. &quot;Shipyard Tutorial&quot; is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">CC BY-SA 4.0</a> by Dylan Ancel.</p>
+<h1><a class="header" href="#move-it" id="move-it">Move it</a></h1>
+<p>In the previous chapter we created our character, yes the <code>@</code>. But we can't do anything with it, let's change that.</p>
+<p>We'll need a few new imports:</p>
+<pre><code class="language-diff">-use rltk::{GameState, Rltk, RltkBuilder, RGB};
+</code></pre>
+<pre><code class="language-rust noplaypen">use rltk::{GameState, Rltk, RltkBuilder, VirtualKeyCode, RGB};
+use std::cmp::{max, min};
+</code></pre>
+<p>Next, we'll make a new system:</p>
+<pre><code class="language-rust noplaypen">fn move_player(ctx: &amp;mut Rltk, mut positions: ViewMut&lt;Position&gt;) {
+    let [delta_x, delta_y] = match ctx.key {
+        Some(VirtualKeyCode::Left) =&gt; [-1, 0],
+        Some(VirtualKeyCode::Right) =&gt; [1, 0],
+        Some(VirtualKeyCode::Up) =&gt; [0, -1],
+        Some(VirtualKeyCode::Down) =&gt; [0, 1],
+        _ =&gt; return,
+    };
+
+    for pos in (&amp;mut positions).iter() {
+        pos.x = min(79, max(0, pos.x + delta_x));
+        pos.y = min(49, max(0, pos.y + delta_y));
+    }
+}
+</code></pre>
+<p><code>Rltk.key</code> will tell us which key is pressed and we'll move the player accordingly.</p>
+<p>This system is a bit different from the previous one since it takes an argument that we don't own and isn't a view.<br />
+For this kind of system we'll have to use <a href="https://docs.rs/shipyard/latest/shipyard/struct.World.html#method.run_with_data"><code>World::run_with_data</code></a>.</p>
+<p>We'll run the system after clearing the console and before rendering the player:</p>
+<pre><code class="language-rust noplaypen">self.ecs.run_with_data(move_player, ctx);
+</code></pre>
+<p>If you run your program you should be able to move the player with the arrow keys.</p>
+<h2><a class="header" href="#a-wall-or-two-or-400" id="a-wall-or-two-or-400">A wall or two (or 400)</a></h2>
+<p>We can move our character but space isn't a dream place for everyone.</p>
+<p>To make it more interesting we'll fill the console with tiles:</p>
+<pre><code class="language-rust noplaypen">#[derive(Clone, Copy)]
+enum Tile {
+    Floor,
+    Wall,
+}
+</code></pre>
+<p>We'll hold all these tiles in a <code>[Tile; 4000]</code> and store it in the <a href="https://docs.rs/shipyard/latest/shipyard/struct.World.html"><code>World</code></a>:</p>
+<pre><code class="language-rust noplaypen">fn create_map() -&gt; [Tile; 4000] {
+    // we start without any wall
+    let mut map = [Tile::Floor; 80 * 50];
+
+    // we replace the outer edges with walls
+    for x in 0..80 {
+        map[index_of(x, 0)] = Tile::Wall;
+        map[index_of(x, 49)] = Tile::Wall;
+    }
+    for y in 1..49 {
+        map[index_of(0, y)] = Tile::Wall;
+        map[index_of(79, y)] = Tile::Wall;
+    }
+
+    let mut rng = rltk::RandomNumberGenerator::new();
+
+    // we randomly place up to 400 walls
+    for _ in 0..400 {
+        let x = rng.range(0, 80);
+        let y = rng.range(0, 50);
+        let idx = index_of(x, y);
+        // make sure the player isn't in a wall
+        if idx != index_of(40, 25) {
+            map[idx] = Tile::Wall;
+        }
+    }
+
+    map
+}
+
+/// Returns the index based on coordinates.
+fn index_of(x: i32, y: i32) -&gt; usize {
+    ((y * 80) + x) as usize
+}
+</code></pre>
+<p>We could add the map to the <a href="https://docs.rs/shipyard/latest/shipyard/struct.World.html"><code>World</code></a> as an entity but we'll only have one and accessing it would require storing its <code>EntityId</code>.<br />
+For exactly this purpose another type of storage exists: unique storage.</p>
+<p>Let's add the map right after creating the player, in <code>main</code>:</p>
+<pre><code class="language-rust noplaypen">gs.ecs.add_unique(create_map());
+</code></pre>
+<p>With the map created and stored in the <a href="https://docs.rs/shipyard/latest/shipyard/struct.World.html"><code>World</code></a> there is just one thing left to do: render it.</p>
+<ul>
+<li>
+<p>imports:</p>
+<pre><code class="language-diff">-use shipyard::{EntitiesViewMut, IntoIter, View, ViewMut, World};
+</code></pre>
+<pre><code class="language-rust noplaypen">use shipyard::{EntitiesViewMut, IntoIter, UniqueView, View, ViewMut, World};
+</code></pre>
+</li>
+<li>
+<p>new system:</p>
+<pre><code class="language-rust noplaypen">fn draw_map(ctx: &amp;mut Rltk, map: UniqueView&lt;[Tile; 4000]&gt;) {
+    for (i, tile) in map.iter().enumerate() {
+        let (x, y) = coords_of(i);
+
+        match tile {
+            Tile::Floor =&gt; {
+                ctx.set(x, y, RGB::from_f32(0.5, 0.5, 0.5), RGB::from_f32(0., 0., 0.), rltk::to_cp437('.'));
+            }
+            Tile::Wall =&gt; {
+                ctx.set(x, y, RGB::from_f32(0., 1., 0.), RGB::from_f32(0., 0., 0.), rltk::to_cp437('#'));
+            }
+        }
+    }
+}
+
+// opposite of index_of
+/// Returns the coordinates based on an index.
+fn coords_of(i: usize) -&gt; (i32, i32) {
+    ((i % 80) as i32, (i / 80) as i32)
+}
+</code></pre>
+</li>
+</ul>
+<p>We'll run it right before rendering the player.</p>
+<pre><code class="language-rust noplaypen">self.ecs.run_with_data(draw_map, ctx);
+</code></pre>
+<p>Final step, we'll transform these ghost walls to concrete by modifying the loop in <code>move_player</code>:</p>
+<pre><code class="language-diff">-fn move_player(ctx: &amp;mut Rltk, mut positions: ViewMut&lt;Position&gt;) {
++fn move_player(ctx: &amp;mut Rltk, map: UniqueView&lt;[Tile; 4000]&gt;, mut positions: ViewMut&lt;Position&gt;) {
+    let [delta_x, delta_y] = match ctx.key {
+        Some(VirtualKeyCode::Left) =&gt; [-1, 0],
+        Some(VirtualKeyCode::Right) =&gt; [1, 0],
+        Some(VirtualKeyCode::Up) =&gt; [0, -1],
+        Some(VirtualKeyCode::Down) =&gt; [0, 1],
+        _ =&gt; return,
+    };
+
+    for pos in (&amp;mut positions).iter() {
+-        pos.x = min(79, max(0, pos.x + delta_x));
+-        pos.y = min(49, max(0, pos.y + delta_y));
++        let destination_idx = index_of(pos.x + delta_x, pos.y + delta_y);
++
++        if let Tile::Floor = map[destination_idx] {
++            pos.x = min(79, max(0, pos.x + delta_x));
++            pos.y = min(49, max(0, pos.y + delta_y));
++        }
+    }
+}
+</code></pre>
+<h2><a class="header" href="#final-code-1" id="final-code-1">Final code</a></h2>
+<pre><code class="language-rust noplaypen">use rltk::{GameState, Rltk, RltkBuilder, VirtualKeyCode, RGB};
+use shipyard::{EntitiesViewMut, IntoIter, UniqueView, View, ViewMut, World};
+use std::cmp::{max, min};
+
+struct Position {
+    x: i32,
+    y: i32,
+}
+
+struct Renderable {
+    glyph: rltk::FontCharType,
+    fg: RGB,
+    bg: RGB,
+}
+
+#[derive(Clone, Copy)]
+enum Tile {
+    Floor,
+    Wall,
+}
+
+fn move_player(ctx: &amp;mut Rltk, map: UniqueView&lt;[Tile; 4000]&gt;, mut positions: ViewMut&lt;Position&gt;) {
+    let [delta_x, delta_y] = match ctx.key {
+        Some(VirtualKeyCode::Left) =&gt; [-1, 0],
+        Some(VirtualKeyCode::Right) =&gt; [1, 0],
+        Some(VirtualKeyCode::Up) =&gt; [0, -1],
+        Some(VirtualKeyCode::Down) =&gt; [0, 1],
+        _ =&gt; return,
+    };
+
+    for pos in (&amp;mut positions).iter() {
+        let destination_idx = index_of(pos.x + delta_x, pos.y + delta_y);
+
+        if let Tile::Floor = map[destination_idx] {
+            pos.x = min(79, max(0, pos.x + delta_x));
+            pos.y = min(49, max(0, pos.y + delta_y));
+        }
+    }
+}
+
+fn draw_map(ctx: &amp;mut Rltk, map: UniqueView&lt;[Tile; 4000]&gt;) {
+    for (i, tile) in map.iter().enumerate() {
+        let (x, y) = coords_of(i);
+
+        match tile {
+            Tile::Floor =&gt; {
+                ctx.set(x, y, RGB::from_f32(0.5, 0.5, 0.5), RGB::from_f32(0., 0., 0.), rltk::to_cp437('.'));
+            }
+            Tile::Wall =&gt; {
+                ctx.set(x, y, RGB::from_f32(0., 1., 0.), RGB::from_f32(0., 0., 0.), rltk::to_cp437('#'));
+            }
+        }
+    }
+}
+
+struct State {
+    ecs: World,
+}
+
+impl GameState for State {
+    fn tick(&amp;mut self, ctx: &amp;mut Rltk) {
+        ctx.cls();
+
+        self.ecs.run_with_data(move_player, ctx);
+
+        self.ecs.run_with_data(draw_map, ctx);
+        self.ecs
+            .run(|positions: View&lt;Position&gt;, renderables: View&lt;Renderable&gt;| {
+                for (pos, render) in (&amp;positions, &amp;renderables).iter() {
+                    ctx.set(pos.x, pos.y, render.fg, render.bg, render.glyph);
+                }
+            });
+    }
+}
+
+fn initial_entities(
+    mut entities: EntitiesViewMut,
+    mut positions: ViewMut&lt;Position&gt;,
+    mut renderables: ViewMut&lt;Renderable&gt;,
+) {
+    entities.add_entity(
+        (&amp;mut positions, &amp;mut renderables),
+        (
+            Position { x: 40, y: 25 },
+            Renderable {
+                glyph: rltk::to_cp437('@'),
+                fg: RGB::named(rltk::YELLOW),
+                bg: RGB::named(rltk::BLACK),
+            },
+        ),
+    );
+}
+
+fn create_map() -&gt; [Tile; 4000] {
+    // we start without any wall
+    let mut map = [Tile::Floor; 80 * 50];
+
+    // we replace the outer edges with walls
+    for x in 0..80 {
+        map[index_of(x, 0)] = Tile::Wall;
+        map[index_of(x, 49)] = Tile::Wall;
+    }
+    for y in 1..49 {
+        map[index_of(0, y)] = Tile::Wall;
+        map[index_of(79, y)] = Tile::Wall;
+    }
+
+    let mut rng = rltk::RandomNumberGenerator::new();
+
+    // we randomly place up to 400 walls
+    for _ in 0..400 {
+        let x = rng.range(0, 80);
+        let y = rng.range(0, 50);
+        let idx = index_of(x, y);
+        if idx != index_of(40, 25) {
+            map[idx] = Tile::Wall;
+        }
+    }
+
+    map
+}
+
+/// Returns the index based on coordinates.
+fn index_of(x: i32, y: i32) -&gt; usize {
+    ((y * 80) + x) as usize
+}
+
+/// Returns the coordinates based on an index.
+fn coords_of(i: usize) -&gt; (i32, i32) {
+    ((i % 80) as i32, (i / 80) as i32)
+}
+
+fn main() -&gt; rltk::BError {
+    let context = RltkBuilder::simple80x50()
+        .with_title(&quot;Roguelike Tutorial&quot;)
+        .build()?;
+    let gs = State { ecs: World::new() };
+
+    gs.ecs.run(initial_entities);
+    gs.ecs.add_unique(create_map());
+
+    rltk::main_loop(context, gs)
+}
+</code></pre>
+<hr />
+<p>The &quot;Shipyard Tutorial&quot; is a derivative work of <a href="https://bfnightly.bracketproductions.com/rustbook/">&quot;Roguelike Tutorial - In Rust&quot;</a> by <a href="https://github.com/thebracket">Herbert Wolverson</a>, used under <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">CC BY-SA 4.0</a>. &quot;Shipyard Tutorial&quot; is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">CC BY-SA 4.0</a> by Dylan Ancel.</p>
+<h1><a class="header" href="#a-whole-new-world" id="a-whole-new-world">A whole new world</a></h1>
+<p>We have a map and it's better than the void of space but it's still not super interesting.<br />
+In this chapter we'll enhance the map and in the next one we'll make it more fun to explore.</p>
+<h2><a class="header" href="#refactoring" id="refactoring">Refactoring</a></h2>
+<p>Before we start, <code>main.rs</code> is getting a little too crowded and it'll only get worse so let's split it in multiple files.</p>
+<p>We'll start by moving <code>Position</code> and <code>Renderable</code> to <code>src/components.rs</code>.<br />
+<code>Tile</code>, <code>draw_map</code>, <code>create_map</code>, <code>index_of</code> and <code>coords_of</code> to <code>src/map.rs</code>.<br />
+And <code>move_player</code> to <code>src/player.rs</code>.</p>
+<p>We declare the new modules in <code>main.rs</code>:</p>
+<pre><code class="language-rust noplaypen">mod components;
+mod map;
+mod player;
+</code></pre>
+<p>Then it's just a matter of fixing all imports errors and making everything public. You can do it by yourself or look at the final result <a href="https://github.com/leudz/shipyard/tree/master/tutorial/src/bin/3_refactor">here</a>.</p>
+<p>When all errors are fixed you should be able to run the game and have the same output as before.</p>
+<p>We'll take the opportunity to make a new type for the map, it'll help us in this chapter.</p>
+<pre><code class="language-rust noplaypen">pub struct Map {
+    pub tiles: [Tile; 4000],
+}
+</code></pre>
+<p>Now we can move <code>create_map</code> and <code>draw_map</code> into an <code>impl Map</code> block.</p>
+<pre><code class="language-rust noplaypen">impl Map {
+    pub fn draw(ctx: &amp;mut Rltk, map: UniqueView&lt;Self&gt;) {
+        for (i, tile) in map.tiles.iter().enumerate() {
+            let (x, y) = coords_of(i);
+
+            match tile {
+                Tile::Floor =&gt; {
+                    ctx.set(x, y, RGB::from_f32(0.5, 0.5, 0.5), RGB::from_f32(0., 0., 0.), rltk::to_cp437('.'));
+                }
+                Tile::Wall =&gt; {
+                    ctx.set(x, y, RGB::from_f32(0., 1., 0.), RGB::from_f32(0., 0., 0.), rltk::to_cp437('#'));
+                }
+            }
+        }
+    }
+
+    pub fn create() -&gt; Self {
+        // we start without any wall
+        let mut tiles = [Tile::Floor; 80 * 50];
+
+        // we replace the outer edges with walls
+        for x in 0..79 {
+            tiles[index_of(x, 0)] = Tile::Wall;
+            tiles[index_of(x, 49)] = Tile::Wall;
+        }
+        for y in 1..49 {
+            tiles[index_of(0, y)] = Tile::Wall;
+            tiles[index_of(79, y)] = Tile::Wall;
+        }
+
+        let mut rng = rltk::RandomNumberGenerator::new();
+
+        // we randomly place up to 400 walls
+        for _ in 0..400 {
+            let x = rng.range(0, 80);
+            let y = rng.range(0, 50);
+            let idx = index_of(x, y);
+            if idx != index_of(40, 25) {
+                tiles[idx] = Tile::Wall;
+            }
+        }
+
+        Map {
+            tiles,
+        }
+    }
+}
+</code></pre>
+<p>With theses changes we also have to modify the call sites.</p>
+<ul>
+<li><code>main.rs</code>:
+<ul>
+<li>
+<p>imports:</p>
+<pre><code class="language-diff">-use map::{create_map, draw_map};
+</code></pre>
+<pre><code class="language-rust noplaypen">use map::Map;
+</code></pre>
+</li>
+<li>
+<p><code>GameState::tick</code>:</p>
+<pre><code class="language-diff">-self.ecs.run_with_data(draw_map, ctx);
+</code></pre>
+<pre><code class="language-rust noplaypen">self.ecs.run_with_data(Map::draw, ctx);
+</code></pre>
+</li>
+<li>
+<p><code>main</code>:</p>
+<pre><code class="language-diff">-gs.ecs.add_unique(create_map());
+</code></pre>
+<pre><code class="language-rust noplaypen">gs.ecs.add_unique(Map::create());
+</code></pre>
+</li>
+</ul>
+</li>
+<li><code>player.rs</code>:
+<ul>
+<li>imports:
+<pre><code class="language-diff">-use crate::map::{index_of, Tile};
+</code></pre>
+<pre><code class="language-rust noplaypen">use crate::map::{index_of, Map, Tile};
+</code></pre>
+</li>
+<li><code>move_player</code>:
+<pre><code class="language-diff">-pub fn move_player(
+-    ctx: &amp;mut Rltk,
+-    map: UniqueView&lt;[Tile; 4000]&gt;,
+-    mut positions: ViewMut&lt;Position&gt;,
+-) {
++pub fn move_player(ctx: &amp;mut Rltk, map: UniqueView&lt;Map&gt;, mut positions: ViewMut&lt;Position&gt;) {
+    let [delta_x, delta_y] = match ctx.key {
+        Some(VirtualKeyCode::Left) =&gt; [-1, 0],
+        Some(VirtualKeyCode::Right) =&gt; [1, 0],
+        Some(VirtualKeyCode::Up) =&gt; [0, -1],
+        Some(VirtualKeyCode::Down) =&gt; [0, 1],
+        _ =&gt; return,
+    };
+
+    for pos in (&amp;mut positions).iter() {
+        let destination_idx = index_of(pos.x + delta_x, pos.y + delta_y);
+
+-        if let Tile::Floor = map[destination_idx] {
++        if let Tile::Floor = map.tiles[destination_idx] {
+            pos.x = min(79, max(0, pos.x + delta_x));
+            pos.y = min(49, max(0, pos.y + delta_y));
+        }
+    }
+}
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<p>All done!</p>
+<h2><a class="header" href="#to-the-dungeon" id="to-the-dungeon">To the dungeon!</a></h2>
+<p>Just like Rogue, our map will be made of rooms and corridors.<br />
+The simplest way to implement it is to fill the map with walls and dig.</p>
+<p>We'll start by adding a struct for the rooms in <code>map.rs</code>:</p>
+<pre><code class="language-rust noplaypen">pub struct Room {
+    x1: i32,
+    x2: i32,
+    y1: i32,
+    y2: i32,
+}
+
+impl Room {
+    pub fn new(x: i32, y: i32, w: i32, h: i32) -&gt; Room {
+        Room {
+            x1: x,
+            y1: y,
+            x2: x + w - 1,
+            y2: y + h - 1,
+        }
+    }
+
+    pub fn intersect(&amp;self, other: &amp;Room) -&gt; bool {
+        self.x1 - 1 &lt;= other.x2
+            &amp;&amp; self.x2 + 1 &gt;= other.x1
+            &amp;&amp; self.y1 - 1 &lt;= other.y2
+            &amp;&amp; self.y2 + 1 &gt;= other.y1
+    }
+
+    pub fn center(&amp;self) -&gt; [i32; 2] {
+        [(self.x1 + self.x2) / 2, (self.y1 + self.y2) / 2]
+    }
+}
+</code></pre>
+<p>In <code>intersect</code> we're artificially making one of the room bigger to make sure they always have a wall between them.</p>
+<p>We're going to modify the type of our tiles too to be able to make a map of any size:</p>
+<pre><code class="language-diff">-pub struct Map {
+-    pub tiles: [Tile; 4000],
+-}
+</code></pre>
+<pre><code class="language-rust noplaypen">pub struct Map {
+    pub tiles: Vec&lt;Tile&gt;,
+    pub rooms: Vec&lt;Room&gt;,
+    pub width: u32,
+    pub height: u32,
+}
+</code></pre>
+<p>A <code>Box&lt;[Tile]&gt;</code> would have transcribed our intensions better but <code>Vec</code> will make our life easier in a future chapter.</p>
+<p>We'll delete <code>create_map</code> and a new method to <code>Map</code> to generate the dungeon:</p>
+<pre><code class="language-rust noplaypen">pub fn create_dungeon(width: u32, height: u32) -&gt; Self {
+    const MAX_ROOMS: i32 = 30;
+    const MIN_SIZE: i32 = 6;
+    const MAX_SIZE: i32 = 10;
+
+    // we start with a map full of walls
+    let mut tiles = vec![Tile::Wall; (width * height) as usize];
+
+    let mut rng = rltk::RandomNumberGenerator::new();
+
+    let mut rooms: Vec&lt;Room&gt; = Vec::new();
+    for _ in 0..MAX_ROOMS {
+        let w = rng.range(MIN_SIZE, MAX_SIZE);
+        let h = rng.range(MIN_SIZE, MAX_SIZE);
+        // we're not allowing rooms to be built on the outer edge
+        let x = rng.range(1, width as i32 - 1 - w);
+        let y = rng.range(1, height as i32 - 1 - h);
+        let new_room = Room::new(x, y, w, h);
+
+        // we go through all previous rooms to check if we overlap one of them
+        let mut ok = true;
+        for other_room in rooms.iter() {
+            if new_room.intersect(other_room) {
+                ok = false
+            }
+        }
+
+        // if the room has a valid location, we add it to the list
+        if ok {
+            dig_room(&amp;mut tiles, &amp;new_room);
+            rooms.push(new_room);
+        }
+    }
+
+    Map {
+        tiles,
+        rooms,
+        width,
+        height,
+    }
+}
+</code></pre>
+<p>New free function:</p>
+<pre><code class="language-rust noplaypen">fn dig_room(tiles: &amp;mut [Tile], room: &amp;Room) {
+    for y in room.y1..=room.y2 {
+        for x in room.x1..=room.x2 {
+            tiles[index_of(x, y)] = Tile::Floor;
+        }
+    }
+}
+</code></pre>
+<p>Finally we modify the call sites:</p>
+<ul>
+<li><code>main</code>:
+<pre><code class="language-diff">-gs.ecs.add_unique(create_map());
+</code></pre>
+<pre><code class="language-rust noplaypen">gs.ecs.add_unique(Map::create_dungeon(80, 50));
+</code></pre>
+</li>
+</ul>
+<p>We can run the game again!</p>
+<p>Wait a minute... I'm stuck in a wall! And we never made corridors.</p>
+<p>We'll start with the corridors by adding two free functions in <code>map.rs</code>:</p>
+<pre><code class="language-rust noplaypen">fn dig_horizontal_tunnel(tiles: &amp;mut [Tile], x1: i32, x2: i32, y: i32) {
+    for x in min(x1, x2)..=max(x1, x2) {
+        let idx = index_of(x, y);
+        if idx &gt; 0 &amp;&amp; idx &lt; 80 * 50 {
+            tiles[idx as usize] = Tile::Floor;
+        }
+    }
+}
+
+fn dig_vertical_tunnel(tiles: &amp;mut [Tile], y1: i32, y2: i32, x: i32) {
+    for y in min(y1, y2)..=max(y1, y2) {
+        let idx = index_of(x, y);
+        if idx &gt; 0 &amp;&amp; idx &lt; 80 * 50 {
+            tiles[idx as usize] = Tile::Floor;
+        }
+    }
+}
+</code></pre>
+<p>And the imports to go with them:</p>
+<pre><code class="language-rust noplaypen">use std::cmp::{max, min};
+</code></pre>
+<p>We'll use these functions in <code>create_dungeon</code>:</p>
+<pre><code class="language-diff">-if ok {
+-    dig_room(&amp;mut tiles, &amp;new_room);
+-    rooms.push(new_room);
+-}
+</code></pre>
+<pre><code class="language-rust noplaypen">if ok {
+    dig_room(&amp;mut tiles, &amp;new_room);
+
+    if let Some(last_room) = rooms.last() {
+        let [new_x, new_y] = new_room.center();
+        let [prev_x, prev_y] = last_room.center();
+        
+        if rng.range(0, 2) == 1 {
+            dig_horizontal_tunnel(&amp;mut tiles, prev_x, new_x, prev_y);
+            dig_vertical_tunnel(&amp;mut tiles, prev_y, new_y, new_x);
+        } else {
+            dig_vertical_tunnel(&amp;mut tiles, prev_y, new_y, prev_x);
+            dig_horizontal_tunnel(&amp;mut tiles, prev_x, new_x, new_y);
+        }
+    }
+
+    rooms.push(new_room);
+}
+</code></pre>
+<p>This will connect rooms and alternate their direction.</p>
+<p>One problem down, one to go.</p>
+<p>To make sure the player never spawns in a wall, we'll put it at the center of a room.</p>
+<p>We need to add a new argument to <code>initial_entities</code>. It has to be the first argument to stay a system.</p>
+<ul>
+<li>
+<p>new <code>initial_entities</code>'s argument:</p>
+<pre><code class="language-diff">fn initial_entities(
++    [x, y]: [i32; 2],
+    mut entities: EntitiesViewMut,
+    mut positions: ViewMut&lt;Position&gt;,
+    mut renderables: ViewMut&lt;Renderable&gt;,
+) {
+</code></pre>
+</li>
+<li>
+<p><code>initial_entities</code>:</p>
+<pre><code class="language-diff">-Position { x: 40, y: 25 },
+</code></pre>
+<pre><code class="language-rust noplaypen">Position { x, y },
+</code></pre>
+</li>
+<li>
+<p><code>main</code>:</p>
+<pre><code class="language-diff">-gs.ecs.run(initial_entities);
+-gs.ecs.add_unique(Map::create_dungeon(80, 50));
+</code></pre>
+<pre><code class="language-rust noplaypen">let map = Map::create_dungeon(80, 50);
+gs.ecs
+    .run_with_data(initial_entities, map.rooms[0].center());
+gs.ecs.add_unique(map);
+</code></pre>
+</li>
+</ul>
+<p>That's it, congratulations! In the next chapter we'll work on exploration.</p>
+<h2><a class="header" href="#final-code-2" id="final-code-2">Final code</a></h2>
+<p>You can find the <a href="https://github.com/leudz/shipyard/tree/master/tutorial/src/bin/3">final code here</a>.</p>
+<hr />
+<p>The &quot;Shipyard Tutorial&quot; is a derivative work of <a href="https://bfnightly.bracketproductions.com/rustbook/">&quot;Roguelike Tutorial - In Rust&quot;</a> by <a href="https://github.com/thebracket">Herbert Wolverson</a>, used under <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">CC BY-SA 4.0</a>. &quot;Shipyard Tutorial&quot; is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">CC BY-SA 4.0</a> by Dylan Ancel.</p>
+<h1><a class="header" href="#the-journey-begins" id="the-journey-begins">The journey begins</a></h1>
+<p>So far we've always had the whole map as soon as the game begins which makes any exploration pointless.<br />
+We'll change that in this chapter by making the player only see what is in their field of view.</p>
+<p>We'll start by implementing a couple of trait for <code>Map</code>:</p>
+<ul>
+<li>imports:
+<pre><code class="language-diff">-use rltk::{Rltk, RGB};
+</code></pre>
+<pre><code class="language-rust noplaypen">use rltk::{Algorithm2D, BaseMap, Point, Rltk, RGB};
+</code></pre>
+</li>
+<li><code>Tile</code> derive:
+<pre><code class="language-rust noplaypen">#[derive(Clone, Copy, PartialEq, Eq)]
+</code></pre>
+</li>
+<li>new <code>impl</code>:
+<pre><code class="language-rust noplaypen">impl BaseMap for Map {
+    fn is_opaque(&amp;self, idx: usize) -&gt; bool {
+        self.tiles[idx] == Tile::Wall
+    }
+}
+
+impl Algorithm2D for Map {
+    fn dimensions(&amp;self) -&gt; Point {
+        Point::new(self.width, self.height)
+    }
+}
+</code></pre>
+With these two traits we'll be able to query rltk to know what the player sees.</li>
+</ul>
+<p>We'll make a new <code>visibility.rs</code> file and add:</p>
+<ul>
+<li>imports:
+<pre><code class="language-rust noplaypen">use crate::components::Position;
+use crate::map::Map;
+use rltk::{field_of_view, Point};
+use shipyard::{IntoIter, UniqueView, View, ViewMut};
+</code></pre>
+</li>
+<li>new component:
+<pre><code class="language-rust noplaypen">pub struct Viewshed {
+    pub visible_tiles: Vec&lt;Point&gt;,
+    pub range: u32,
+}
+
+impl Viewshed {
+    pub fn new(range: u32) -&gt; Self {
+        Viewshed {
+            visible_tiles: Vec::new(),
+            range,
+        }
+    }
+}
+</code></pre>
+</li>
+<li>new system:
+<pre><code class="language-rust noplaypen">pub fn visibility(
+    map: UniqueView&lt;Map&gt;,
+    positions: View&lt;Position&gt;,
+    mut viewsheds: ViewMut&lt;Viewshed&gt;,
+) {
+    for (viewshed, pos) in (&amp;mut viewsheds, &amp;positions).iter() {
+        viewshed.visible_tiles.clear();
+        // query rltk to get all tiles in the player's field of view
+        viewshed.visible_tiles =
+            field_of_view(Point::new(pos.x, pos.y), viewshed.range as i32, &amp;*map);
+        // clip the visible tiles to the console
+        viewshed.visible_tiles.retain(|p| {
+            p.x &gt;= 0 &amp;&amp; p.x &lt; map.width as i32 - 1 &amp;&amp; p.y &gt;= 0 &amp;&amp; p.y &lt; map.height as i32 - 1
+        });
+    }
+}
+</code></pre>
+</li>
+</ul>
+<p>To make it work we need to add the new component to the player in <code>main.rs</code> and run the system:</p>
+<ul>
+<li>module:
+<pre><code class="language-rust noplaypen">mod visibility;
+</code></pre>
+</li>
+<li>imports:
+<pre><code class="language-rust noplaypen">use visibility::{visibility, Viewshed};
+</code></pre>
+</li>
+<li><code>ìnitial_entities</code>:
+<pre><code class="language-diff">fn initial_entities(
+    [x, y]: [i32; 2],
+    mut entities: EntitiesViewMut,
+    mut positions: ViewMut&lt;Position&gt;,
+    mut renderables: ViewMut&lt;Renderable&gt;,
++    mut viewsheds: ViewMut&lt;Viewshed&gt;,
+) {
+    entities.add_entity(
+-        (&amp;mut positions, &amp;mut renderables),
++        (&amp;mut positions, &amp;mut renderables, &amp;mut viewsheds),
+        (
+            Position { x, y },
+            Renderable {
+                glyph: rltk::to_cp437('@'),
+                fg: RGB::named(rltk::YELLOW),
+                bg: RGB::named(rltk::BLACK),
+            },
++            Viewshed::new(8),
+        ),
+    );
+}
+</code></pre>
+</li>
+<li><code>State::tick</code>:
+<pre><code class="language-rust noplaypen">self.ecs.run(visibility);
+</code></pre>
+We'll run this system between moving the player and rendering the map.</li>
+</ul>
+<p>Last step is to modify <code>map.rs</code>:</p>
+<ul>
+<li>imports:
+<pre><code class="language-diff">-use shipyard::UniqueView;
+</code></pre>
+<pre><code class="language-rust noplaypen">use crate::visibility::Viewshed;
+use shipyard::{IntoIter, UniqueView, View};
+</code></pre>
+</li>
+<li><code>Map::draw</code>:
+<pre><code class="language-rust noplaypen">pub fn draw(ctx: &amp;mut Rltk, map: UniqueView&lt;Self&gt;, viewsheds: View&lt;Viewshed&gt;) {
+    for (i, tile) in map.tiles.iter().enumerate() {
+        let (x, y) = coords_of(i);
+        let p = Point::new(x, y);
+
+        for viewshed in viewsheds.iter() {
+            if viewshed.visible_tiles.contains(&amp;p) {
+                match tile {
+                    Tile::Floor =&gt; {
+                        ctx.set(x, y, RGB::from_f32(0.5, 0.5, 0.5), RGB::from_f32(0., 0., 0.), rltk::to_cp437('.'));
+                    }
+                    Tile::Wall =&gt; {
+                        ctx.set(x, y, RGB::from_f32(0., 1., 0.), RGB::from_f32(0., 0., 0.), rltk::to_cp437('#'));
+                    }
+                }
+            }
+        }
+    }
+}
+</code></pre>
+We're only rendering visible tiles now.</li>
+</ul>
+<h2><a class="header" href="#im-not-a-goldfish" id="im-not-a-goldfish">I'm not a goldfish!</a></h2>
+<p>We have what we wanted, we can only see the tiles our character can. But it's a bit too extreme, the walls are not going to move.<br />
+So let's make the game help us remember where there are.</p>
+<ul>
+<li><code>map.rs</code>:
+<ul>
+<li><code>Map</code> new field:
+<pre><code class="language-rust noplaypen">pub revealed_tiles: Vec&lt;bool&gt;,
+</code></pre>
+</li>
+<li><code>Map::create_dungeon</code>:
+<pre><code class="language-diff">Map {
+    tiles,
+    rooms,
++    revealed_tiles: vec![false; (width * height) as usize],
+    width,
+    height,
+}
+</code></pre>
+</li>
+<li><code>Map::draw</code>:
+<pre><code class="language-diff">pub fn draw(ctx: &amp;mut Rltk, map: UniqueView&lt;Self&gt;, viewsheds: View&lt;Viewshed&gt;) {
+    for (i, tile) in map.tiles.iter().enumerate() {
+        let (x, y) = coords_of(i);
+-        let p = Point::new(x, y);
+
+-        for viewshed in viewsheds.iter() {
+-            if viewshed.visible_tiles.contains(&amp;p) {
++        if map.revealed_tiles[i] {
+            match tile {
+                Tile::Floor =&gt; {
+                    ctx.set(x, y, RGB::from_f32(0.5, 0.5, 0.5), RGB::from_f32(0., 0., 0.), rltk::to_cp437('.'));
+                }
+                Tile::Wall =&gt; {
+                    ctx.set(x, y, RGB::from_f32(0., 1., 0.), RGB::from_f32(0., 0., 0.), rltk::to_cp437('#'));
+                }
+            }
+        }
+-       }
+    }
+}
+</code></pre>
+There will be some unused imports that you can remove.</li>
+</ul>
+</li>
+<li><code>visibility.rs</code>:
+<ul>
+<li>imports:
+<pre><code class="language-diff">-use crate::map::Map;
+-use shipyard::{IntoIter, UniqueView, View, ViewMut};
+</code></pre>
+<pre><code class="language-rust noplaypen">use crate::map::{index_of, Map};
+use shipyard::{IntoIter, UniqueViewMut, View, ViewMut};
+</code></pre>
+</li>
+<li><code>visibility</code>:
+<pre><code class="language-diff">-map: UniqueView&lt;Map&gt;,
+</code></pre>
+<pre><code class="language-rust noplaypen">mut map: UniqueViewMut&lt;Map&gt;,
+</code></pre>
+<pre><code class="language-diff">viewshed.visible_tiles.clear();
+// query rltk to get all tiles in the player's field of view
+viewshed.visible_tiles =
+    field_of_view(Point::new(pos.x, pos.y), viewshed.range, &amp;*map);
+// clip the visible tiles to the console
+viewshed.visible_tiles.retain(|p| {
+    p.x &gt;= 0 &amp;&amp; p.x &lt; map.width as i32 - 1 &amp;&amp; p.y &gt;= 0 &amp;&amp; p.y &lt; map.height as i32 - 1
+});
+
++for p in &amp;viewshed.visible_tiles {
++    map.revealed_tiles[index_of(p.x, p.y)] = true;
++}
+</code></pre>
+We're just setting all tiles viewed as revealed.</li>
+</ul>
+</li>
+</ul>
+<p>We're currently recalculating the player's field of view each frame but most of the time they're not moving.<br />
+We'll add a dirty flag to only recalculate it when needed.</p>
+<ul>
+<li><code>visibility.rs</code>:
+<ul>
+<li><code>Viewshed</code> new field:
+<pre><code class="language-rust noplaypen">pub is_dirty: bool,
+</code></pre>
+</li>
+<li><code>Viewshed::new</code> new field:
+<pre><code class="language-diff">Viewshed {
++    is_dirty: true,
+    visible_tiles: Vec::new(),
+    range,
+}
+</code></pre>
+</li>
+<li><code>visibility</code>:
+<pre><code class="language-diff">+if viewshed.is_dirty {
++    viewshed.is_dirty = false;
++
+    viewshed.visible_tiles.clear();
+    // query rltk to get all tiles in the player's field of view
+    viewshed.visible_tiles =
+        field_of_view(Point::new(pos.x, pos.y), viewshed.range as i32, &amp;*map);
+    // clip the visible tiles to the console
+    viewshed.visible_tiles.retain(|p| {
+        p.x &gt;= 0 &amp;&amp; p.x &lt; map.width as i32 - 1 &amp;&amp; p.y &gt;= 0 &amp;&amp; p.y &lt; map.height as i32 - 1
+    });
+
+    for p in &amp;viewshed.visible_tiles {
+        map.revealed_tiles[index_of(p.x, p.y)] = true;
+    }
++}
+</code></pre>
+Now we check the flag before doing anything and reset it when it's dirty.</li>
+</ul>
+</li>
+<li><code>player.rs</code>:
+<ul>
+<li>imports:
+<pre><code class="language-rust noplaypen">use crate::visibility::Viewshed;
+</code></pre>
+</li>
+<li><code>move_player</code>:
+<pre><code class="language-diff">-pub fn move_player(ctx: &amp;mut Rltk, map: UniqueView&lt;Map&gt;, mut positions: ViewMut&lt;Position&gt;) {
++pub fn move_player(
++    ctx: &amp;mut Rltk,
++    map: UniqueView&lt;Map&gt;,
++    mut positions: ViewMut&lt;Position&gt;,
++    mut viewsheds: ViewMut&lt;Viewshed&gt;,
++) {
+    let [delta_x, delta_y] = match ctx.key {
+        Some(VirtualKeyCode::Left) =&gt; [-1, 0],
+        Some(VirtualKeyCode::Right) =&gt; [1, 0],
+        Some(VirtualKeyCode::Up) =&gt; [0, -1],
+        Some(VirtualKeyCode::Down) =&gt; [0, 1],
+        _ =&gt; return,
+    };
+
+-    for pos in (&amp;mut positions).iter() {
++    for (pos, viewshed) in (&amp;mut positions, &amp;mut viewsheds).iter() {
+        let destination_idx = index_of(pos.x + delta_x, pos.y + delta_y);
+
+        if let Tile::Floor = map.tiles[destination_idx] {
+            pos.x = min(map.width as i32 - 1, max(0, pos.x + delta_x));
+            pos.y = min(map.height as i32 - 1, max(0, pos.y + delta_y));
+        }
+
++        viewshed.is_dirty = true;
+    }
+}
+</code></pre>
+We've added <code>Viewshed</code> to the system and made the flag dirty when the player moves.</li>
+</ul>
+</li>
+</ul>
+<p>Last step is to differentiate between what we see and what we saw.</p>
+<ul>
+<li><code>map.rs</code>:
+<ul>
+<li><code>Map</code> new field:
+<pre><code class="language-rust noplaypen">pub visible_tiles: Vec&lt;bool&gt;,
+</code></pre>
+</li>
+<li><code>create_dungeon</code>:
+<pre><code class="language-diff">Map {
+    tiles,
+    rooms,
+    revealed_tiles: vec![false; (width * height) as usize],
++    visible_tiles: vec![false; (width * height) as usize],
+    width,
+    height,
+}
+</code></pre>
+</li>
+<li><code>Map::draw</code>:
+<pre><code class="language-rust noplaypen">pub fn draw(ctx: &amp;mut Rltk, map: UniqueView&lt;Self&gt;) {
+    for (i, tile) in map.tiles.iter().enumerate() {
+        if map.revealed_tiles[i] {
+            let (x, y) = coords_of(i);
+
+            let (glyph, mut fg) = match tile {
+                Tile::Floor =&gt; (rltk::to_cp437('.'), RGB::from_f32(0., 0.5, 0.5)),
+                Tile::Wall =&gt; (rltk::to_cp437('#'), RGB::from_f32(0., 1., 0.)),
+            };
+
+            if !map.visible_tiles[i] {
+                fg = fg.to_greyscale();
+            }
+
+            ctx.set(x, y, fg, RGB::from_f32(0., 0., 0.), glyph);
+        }
+    }
+}
+</code></pre>
+We made the visible floor a little more visible and we greyed out what we can't see.</li>
+</ul>
+</li>
+<li><code>visibility.rs</code>:
+<ul>
+<li><code>visibility</code>:
+<pre><code class="language-diff">+for t in &amp;mut *map.visible_tiles {
++    *t = false;
++}
+
+for p in &amp;viewshed.visible_tiles {
+    map.revealed_tiles[index_of(p.x, p.y)] = true;
++    map.visible_tiles[index_of(p.x, p.y)] = true;
+}
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<p>Have fun exploring your dungeons! They are safe... for now.</p>
+<h2><a class="header" href="#final-code-3" id="final-code-3">Final code</a></h2>
+<p>You can find the <a href="https://github.com/leudz/shipyard/tree/master/tutorial/src/bin/4">final code here</a>.</p>
+<hr />
+<p>The &quot;Shipyard Tutorial&quot; is a derivative work of <a href="https://bfnightly.bracketproductions.com/rustbook/">&quot;Roguelike Tutorial - In Rust&quot;</a> by <a href="https://github.com/thebracket">Herbert Wolverson</a>, used under <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">CC BY-SA 4.0</a>. &quot;Shipyard Tutorial&quot; is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">CC BY-SA 4.0</a> by Dylan Ancel.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
